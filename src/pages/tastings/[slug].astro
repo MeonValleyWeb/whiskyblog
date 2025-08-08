@@ -27,7 +27,7 @@ const formatDate = (date: Date) => {
 <MainLayout title={tasting.data.title} description={tasting.data.description}>
   
   <!-- Hero Section -->
-  <section class="relative bg-slate-900 text-white">
+  <section class="relative bg-wessex-navy-900 text-white">
     {tasting.data.image && (
       <div class="absolute inset-0">
         <img src={tasting.data.image} alt={tasting.data.title} class="w-full h-full object-cover opacity-40" />
@@ -36,9 +36,9 @@ const formatDate = (date: Date) => {
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div class="max-w-3xl">
         {tasting.data.distillery && (
-          <p class="text-amber-400 font-semibold mb-2">{tasting.data.distillery}</p>
+          <p class="text-wessex-gold-400 font-semibold mb-2">{tasting.data.distillery}</p>
         )}
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 font-serif">
           {tasting.data.title}
         </h1>
         <p class="text-xl text-slate-300 mb-8">
@@ -47,10 +47,10 @@ const formatDate = (date: Date) => {
         
         {isUpcoming && (
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold text-lg">
+            <button class="bg-wessex-red-500 text-white px-8 py-3 rounded-lg hover:bg-wessex-red-600 transition-colors font-semibold text-lg">
               Book Now
             </button>
-            <a href="/tastings" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition-colors font-semibold text-center">
+            <a href="/tastings" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-wessex-navy-900 transition-colors font-semibold text-center">
               View All Tastings
             </a>
           </div>
@@ -84,7 +84,7 @@ const formatDate = (date: Date) => {
             
             <div class="space-y-4 mb-8">
               <div class="flex items-start">
-                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-wessex-gold-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 9v2a4 4 0 11-8 0v-2m8 0V9a5 5 0 00-10 0v4h10z"></path>
                 </svg>
                 <div>
@@ -95,7 +95,7 @@ const formatDate = (date: Date) => {
               </div>
 
               <div class="flex items-start">
-                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-wessex-gold-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
@@ -106,7 +106,7 @@ const formatDate = (date: Date) => {
               </div>
 
               <div class="flex items-start">
-                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-wessex-gold-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                 </svg>
                 <div>
@@ -117,7 +117,7 @@ const formatDate = (date: Date) => {
               </div>
 
               <div class="flex items-start">
-                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-wessex-gold-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
                 <div>
@@ -128,7 +128,7 @@ const formatDate = (date: Date) => {
 
               {tasting.data.whiskeyType && (
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-wessex-gold-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2M7 4h10l-1 14H8L7 4zM9 9v8M15 9v8"></path>
                   </svg>
                   <div>
@@ -154,14 +154,14 @@ const formatDate = (date: Date) => {
 
             {isUpcoming && (
               <div class="space-y-3">
-                <button class="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold">
+                <button class="w-full bg-wessex-red-500 text-white py-3 rounded-lg hover:bg-wessex-red-600 transition-colors font-semibold">
                   Book as Member (£{tasting.data.memberPrice})
                 </button>
-                <button class="w-full border-2 border-amber-600 text-amber-600 py-3 rounded-lg hover:bg-amber-50 transition-colors font-semibold">
+                <button class="w-full border-2 border-wessex-red-500 text-wessex-red-500 py-3 rounded-lg hover:bg-wessex-red-50 transition-colors font-semibold">
                   Book as Guest (£{tasting.data.guestPrice})
                 </button>
                 <p class="text-xs text-slate-500 text-center">
-                  Not a member? <a href="/membership" class="text-amber-600 hover:text-amber-700">Join today</a> for member pricing
+                  Not a member? <a href="/membership" class="text-wessex-red-500 hover:text-wessex-red-600">Join today</a> for member pricing
                 </p>
               </div>
             )}
@@ -175,12 +175,12 @@ const formatDate = (date: Date) => {
   <section class="py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">Other Upcoming Tastings</h2>
+        <h2 class="text-3xl font-bold text-wessex-navy-900 mb-4 font-serif">Other Upcoming Tastings</h2>
         <p class="text-lg text-slate-600">Discover more whisky experiences</p>
       </div>
       
       <div class="text-center">
-        <a href="/tastings" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold">
+        <a href="/tastings" class="inline-block bg-wessex-red-500 text-white px-8 py-3 rounded-lg hover:bg-wessex-red-600 transition-colors font-semibold">
           View All Tastings
         </a>
       </div>
