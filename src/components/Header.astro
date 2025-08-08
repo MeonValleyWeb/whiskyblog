@@ -1,0 +1,63 @@
+---
+---
+
+<header class="bg-white shadow-sm border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="text-2xl font-bold text-amber-600 hover:text-amber-700 transition-colors">
+          Wessex Whisky Club
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Home</a>
+        <a href="/tastings" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Tastings</a>
+        <a href="/membership" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Membership</a>
+        <a href="/about" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">About</a>
+        <a href="/charity" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Charity</a>
+        <a href="/contact" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex">
+        <a href="/membership" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors font-medium">
+          Join Club
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="md:hidden p-2" id="mobile-menu-toggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden pb-4 hidden" id="mobile-menu">
+      <div class="flex flex-col space-y-4">
+        <a href="/" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Home</a>
+        <a href="/tastings" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Tastings</a>
+        <a href="/membership" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Membership</a>
+        <a href="/about" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">About</a>
+        <a href="/charity" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Charity</a>
+        <a href="/contact" class="text-slate-700 hover:text-amber-600 transition-colors font-medium">Contact</a>
+        <a href="/membership" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 transition-colors font-medium text-center">
+          Join Club
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

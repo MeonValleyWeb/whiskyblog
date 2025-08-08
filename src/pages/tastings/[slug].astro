@@ -1,0 +1,202 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const tastings = await getCollection('tastings');
+  return tastings.map((tasting) => ({
+    params: { slug: tasting.slug },
+    props: { tasting },
+  }));
+}
+
+const { tasting } = Astro.props;
+const { Content } = await tasting.render();
+
+const isUpcoming = new Date(tasting.data.date) > new Date();
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-GB', { 
+    weekday: 'long',
+    day: 'numeric', 
+    month: 'long',
+    year: 'numeric'
+  });
+};
+---
+
+<MainLayout title={tasting.data.title} description={tasting.data.description}>
+  
+  <!-- Hero Section -->
+  <section class="relative bg-slate-900 text-white">
+    {tasting.data.image && (
+      <div class="absolute inset-0">
+        <img src={tasting.data.image} alt={tasting.data.title} class="w-full h-full object-cover opacity-40" />
+      </div>
+    )}
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="max-w-3xl">
+        {tasting.data.distillery && (
+          <p class="text-amber-400 font-semibold mb-2">{tasting.data.distillery}</p>
+        )}
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          {tasting.data.title}
+        </h1>
+        <p class="text-xl text-slate-300 mb-8">
+          {tasting.data.description}
+        </p>
+        
+        {isUpcoming && (
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold text-lg">
+              Book Now
+            </button>
+            <a href="/tastings" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition-colors font-semibold text-center">
+              View All Tastings
+            </a>
+          </div>
+        )}
+        
+        {!isUpcoming && (
+          <div class="bg-slate-800 bg-opacity-75 p-4 rounded-lg inline-block">
+            <p class="text-slate-300">This event has already taken place</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="prose prose-lg max-w-none">
+            <Content />
+          </div>
+        </div>
+
+        <!-- Event Info Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="bg-slate-50 rounded-lg p-6 sticky top-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-6">Event Details</h3>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 9v2a4 4 0 11-8 0v-2m8 0V9a5 5 0 00-10 0v4h10z"></path>
+                </svg>
+                <div>
+                  <div class="font-semibold text-slate-900">Date & Time</div>
+                  <div class="text-slate-600">{formatDate(tasting.data.date)}</div>
+                  <div class="text-slate-600">{tasting.data.time}</div>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-semibold text-slate-900">Location</div>
+                  <div class="text-slate-600">{tasting.data.location}</div>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+                <div>
+                  <div class="font-semibold text-slate-900">Pricing</div>
+                  <div class="text-slate-600">Members: £{tasting.data.memberPrice}</div>
+                  <div class="text-slate-600">Guests: £{tasting.data.guestPrice}</div>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-semibold text-slate-900">Capacity</div>
+                  <div class="text-slate-600">{tasting.data.maxAttendees} attendees maximum</div>
+                </div>
+              </div>
+
+              {tasting.data.whiskeyType && (
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-amber-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2M7 4h10l-1 14H8L7 4zM9 9v8M15 9v8"></path>
+                  </svg>
+                  <div>
+                    <div class="font-semibold text-slate-900">Whisky Type</div>
+                    <div class="text-slate-600">{tasting.data.whiskeyType}</div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {tasting.data.charity && (
+              <div class="bg-green-50 p-4 rounded-lg mb-8">
+                <div class="flex items-center mb-2">
+                  <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                  <h4 class="font-semibold text-green-800">Supporting</h4>
+                </div>
+                <p class="text-green-700">{tasting.data.charity}</p>
+                <p class="text-green-600 text-sm mt-1">All proceeds from this event support this worthy cause</p>
+              </div>
+            )}
+
+            {isUpcoming && (
+              <div class="space-y-3">
+                <button class="w-full bg-amber-600 text-white py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold">
+                  Book as Member (£{tasting.data.memberPrice})
+                </button>
+                <button class="w-full border-2 border-amber-600 text-amber-600 py-3 rounded-lg hover:bg-amber-50 transition-colors font-semibold">
+                  Book as Guest (£{tasting.data.guestPrice})
+                </button>
+                <p class="text-xs text-slate-500 text-center">
+                  Not a member? <a href="/membership" class="text-amber-600 hover:text-amber-700">Join today</a> for member pricing
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Events -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Other Upcoming Tastings</h2>
+        <p class="text-lg text-slate-600">Discover more whisky experiences</p>
+      </div>
+      
+      <div class="text-center">
+        <a href="/tastings" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold">
+          View All Tastings
+        </a>
+      </div>
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  .prose h1 { @apply text-3xl font-bold text-slate-900 mb-6; }
+  .prose h2 { @apply text-2xl font-semibold text-slate-900 mb-4 mt-8; }
+  .prose h3 { @apply text-xl font-semibold text-slate-900 mb-3 mt-6; }
+  .prose p { @apply text-slate-700 mb-4 leading-relaxed; }
+  .prose ul { @apply list-disc list-inside mb-4; }
+  .prose ol { @apply list-decimal list-inside mb-4; }
+  .prose li { @apply text-slate-700 mb-1; }
+  .prose strong { @apply font-semibold text-slate-900; }
+  .prose em { @apply italic; }
+</style>
