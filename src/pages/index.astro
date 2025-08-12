@@ -13,7 +13,7 @@ const upcomingTastings = await getCollection('tastings', ({ data }) => {
 const recentPosts = await getCollection('posts');
 ---
 
-<MainLayout title="Home" description="Wessex Whisky Club - Premium whisky tastings supporting local charities in the South West">
+<MainLayout title="Home" description="Wessex Whisky Club - Premium whisky tastings supporting local charities in the South">
   
   <!-- Hero Section -->
   <section class="bg-gradient-to-r from-wessex-gold-50 to-wessex-red-50 py-20">
@@ -24,7 +24,7 @@ const recentPosts = await getCollection('posts');
           <span class="block text-wessex-red-500">For Charity</span>
         </h1>
         <p class="text-xl text-slate-700 mb-8 max-w-3xl mx-auto">
-          Join Wessex Whisky Club for exceptional whisky experiences while supporting local charities across the South West. 
+          Join Wessex Whisky Club for exceptional whisky experiences while supporting local charities across the South. 
           Every tasting makes a difference.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -141,10 +141,7 @@ const recentPosts = await getCollection('posts');
         </div>
         <div class="relative">
           <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-slate-200">
-            <!-- Placeholder for image -->
-            <div class="flex items-center justify-center text-slate-500">
-              <span>Tasting Event Photo</span>
-            </div>
+            <img src="/images/tasting.jpg" alt="Wessex Whisky Club Tasting Event" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>

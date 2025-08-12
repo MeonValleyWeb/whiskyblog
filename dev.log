@@ -1,0 +1,199 @@
+
+> wessex_whisky@0.0.1 dev
+> astro dev
+
+12:48:06 [types] Generated 0ms
+12:48:06 [content] Syncing content
+12:48:06 [content] Synced content
+12:48:06 [vite] Port 4321 is in use, trying another one...
+
+ astro  v5.12.9 ready in 411 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+12:48:06 watching for file changes...
+12:48:07 [200] /tastings 119ms
+12:48:13 [200] / 4ms
+12:48:18 [200] / 6ms
+12:48:21 [200] /tastings 6ms
+12:48:22 [200] /membership 2ms
+12:48:23 [200] /about 3ms
+12:51:08 [watch] src/pages/about.astro
+12:51:08 [watch] src/pages/about.astro
+12:51:08 [200] /about 28ms
+12:51:08 [200] /tastings 2ms
+12:51:14 [watch] src/pages/about.astro
+12:51:14 [watch] src/pages/about.astro
+12:51:15 [200] /about 25ms
+12:51:15 [200] /tastings 2ms
+12:51:20 [watch] src/pages/about.astro
+12:51:20 [watch] src/pages/about.astro
+12:51:20 [200] /about 32ms
+12:51:20 [200] /tastings 2ms
+12:51:39 [watch] src/pages/about.astro
+12:51:39 [watch] src/pages/about.astro
+12:51:39 [200] /about 24ms
+12:51:39 [200] /tastings 4ms
+12:51:55 [watch] src/pages/about.astro
+12:51:55 [watch] src/pages/about.astro
+12:51:55 [200] /about 25ms
+12:51:55 [200] /tastings 2ms
+12:52:05 [watch] src/pages/index.astro
+12:52:05 [watch] src/pages/index.astro
+12:52:05 [200] /about 23ms
+12:52:05 [200] /tastings 2ms
+12:52:11 [watch] src/pages/index.astro
+12:52:11 [watch] src/pages/index.astro
+12:52:12 [200] /about 23ms
+12:52:12 [200] /tastings 2ms
+12:52:17 [watch] src/pages/charity.astro
+12:52:17 [watch] src/pages/charity.astro
+12:52:17 [200] /about 25ms
+12:52:17 [200] /tastings 2ms
+12:52:25 [watch] src/pages/charity.astro
+12:52:25 [watch] src/pages/charity.astro
+12:52:26 [200] /about 22ms
+12:52:26 [200] /tastings 2ms
+12:52:32 [watch] src/pages/tastings/index.astro
+12:52:32 [watch] src/pages/tastings/index.astro
+12:52:32 [200] /about 22ms
+12:52:32 [200] /tastings 2ms
+12:52:33 [200] / 4ms
+12:52:37 [200] /about 2ms
+12:52:41 [200] /about 5ms
+12:52:44 [200] /about 4ms
+12:53:49 [watch] src/pages/about.astro
+12:53:49 [watch] src/pages/about.astro
+12:53:49 [200] /about 23ms
+12:53:49 [200] /tastings 2ms
+12:53:57 [watch] src/pages/charity.astro
+12:53:57 [watch] src/pages/charity.astro
+12:53:58 [200] /about 29ms
+12:53:58 [200] /tastings 2ms
+12:54:05 [watch] src/pages/charity.astro
+12:54:05 [watch] src/pages/charity.astro
+12:54:05 [200] /about 22ms
+12:54:05 [200] /tastings 2ms
+12:54:12 [200] /charity 2ms
+12:54:15 [watch] src/pages/charity.astro
+12:54:15 [watch] src/pages/charity.astro
+12:54:15 [200] /charity 23ms
+12:54:15 [200] /tastings 2ms
+12:54:21 [watch] src/pages/about.astro
+12:54:21 [watch] src/pages/about.astro
+12:54:21 [200] /charity 23ms
+12:54:22 [200] /tastings 2ms
+12:54:41 [200] /contact 3ms
+12:54:52 [200] /about 1ms
+12:54:52 [watch] src/pages/charity.astro
+12:54:52 [watch] src/pages/charity.astro
+12:54:52 [200] /about 24ms
+12:54:53 [200] /tastings 2ms
+12:55:03 [watch] src/pages/about.astro
+12:55:03 [watch] src/pages/about.astro
+12:55:03 [200] /about 23ms
+12:55:03 [200] /tastings 2ms
+12:55:05 [200] /about 4ms
+12:55:06 [200] /membership 5ms
+12:55:11 [watch] src/pages/charity.astro
+12:55:11 [watch] src/pages/charity.astro
+12:55:11 [200] /membership 23ms
+12:55:11 [200] /tastings 2ms
+12:55:12 [200] /tastings 8ms
+12:55:16 [200] /about 2ms
+12:55:23 [200] /tastings 6ms
+12:55:33 [200] / 7ms
+12:55:59 [200] /tastings 5ms
+12:59:59 [glob-loader] Reloaded data from anns-birthday-bash.md
+12:59:59 [glob-loader] Reloaded data from anns-birthday-bash.md
+12:59:59 [200] /tastings 7ms
+13:00:00 [200] /tastings 2ms
+13:00:27 [glob-loader] Reloaded data from glasgow-1770-distillery.md
+13:00:27 [glob-loader] Reloaded data from glasgow-1770-distillery.md
+13:00:27 [200] /tastings 8ms
+13:00:27 [200] /tastings 6ms
+13:00:32 [200] /tastings 3ms
+13:00:38 [200] / 2ms
+13:00:43 [200] /tastings 6ms
+13:01:12 [200] / 5ms
+13:01:17 [200] /tastings/glasgow-1770-distillery 4ms
+13:01:42 [404] /apple-touch-icon-precomposed.png 3ms
+13:01:42 [404] /apple-touch-icon.png 1ms
+13:02:52 [glob-loader] Reloaded data from glasgow-1770-distillery.md
+13:02:53 [200] /tastings/glasgow-1770-distillery 3ms
+13:02:53 [200] /tastings 2ms
+13:02:53 [200] / 2ms
+13:03:27 [glob-loader] Reloaded data from anns-birthday-bash.md
+13:03:27 [200] /tastings/glasgow-1770-distillery 2ms
+13:03:27 [200] / 3ms
+13:03:28 [200] /tastings 2ms
+13:03:39 [200] /tastings/glasgow-1770-distillery 8ms
+13:03:46 [200] /tastings 5ms
+13:03:52 [200] /tastings/anns-birthday-bash 8ms
+13:03:54 [watch] src/content/tastings/highland-single-malt-tasting.md
+13:03:54 [watch] src/content/tastings/highland-single-malt-tasting.md
+13:03:54 [glob-loader] Reloaded data from highland-single-malt-tasting.md
+13:03:55 [200] /tastings/anns-birthday-bash 37ms
+13:03:55 [200] /tastings 2ms
+13:03:55 [200] / 2ms
+13:03:55 [200] /tastings 8ms
+13:03:55 [200] / 8ms
+13:03:55 [200] /tastings/anns-birthday-bash 2ms
+13:04:02 [200] /tastings 6ms
+13:04:05 [200] /tastings/glasgow-1770-distillery 7ms
+13:04:18 [200] /tastings 7ms
+13:04:29 [watch] src/content/tastings/japanese-whisky-masterclass.md
+13:04:29 [watch] src/content/tastings/japanese-whisky-masterclass.md
+13:04:29 [glob-loader] Reloaded data from japanese-whisky-masterclass.md
+13:04:30 [200] /tastings 28ms
+13:04:30 [200] / 2ms
+13:04:30 [200] /tastings 1ms
+13:04:30 [200] /tastings 7ms
+13:04:30 [200] / 9ms
+13:04:30 [200] /tastings 2ms
+13:04:33 [200] /tastings/glasgow-1770-distillery 5ms
+13:04:47 [watch] /src/pages/tastings/[slug].astro?astro&type=style&index=0&lang.css
+13:04:47 [watch] /src/pages/tastings/[slug].astro?astro&type=style&index=0&lang.css
+13:04:51 [200] /tastings/glasgow-1770-distillery 34ms
+13:04:53 [200] /tastings/glasgow-1770-distillery 3ms
+13:05:26 [200] /tastings 5ms
+13:05:28 [200] / 6ms
+13:07:19 [watch] src/pages/tastings/[slug].astro
+13:07:19 [200] /tastings 33ms
+13:07:19 [200] / 34ms
+13:08:20 [watch] src/content/tastings/glasgow-1770-distillery.md
+13:08:20 [watch] src/content/tastings/glasgow-1770-distillery.md
+13:08:20 [glob-loader] Reloaded data from glasgow-1770-distillery.md
+13:08:20 [200] /tastings 42ms
+13:08:20 [200] / 44ms
+13:08:21 [200] / 8ms
+13:09:26 [watch] src/content/tastings/anns-birthday-bash.md
+13:09:26 [watch] src/content/tastings/anns-birthday-bash.md
+13:09:26 [glob-loader] Reloaded data from anns-birthday-bash.md
+13:09:51 [watch] src/pages/tastings/[slug].astro
+13:10:51 [watch] src/content/tastings/highland-single-malt-tasting.md
+13:10:51 [watch] src/content/tastings/highland-single-malt-tasting.md
+13:10:51 [glob-loader] Reloaded data from highland-single-malt-tasting.md
+13:10:57 [ERROR] You cannot `@apply` the `shadow-md` utility here because it creates a circular dependency.
+  Error reference:
+    https://docs.astro.build/en/reference/errors/csssyntax-error/
+  Stack trace:
+    at /Users/andrew/Workspace/wessex_whisky/src/pages/tastings/[slug].astro:249:3
+    [...] See full stack trace in the browser, or rerun with --verbose.
+13:15:39 [ERROR] You cannot `@apply` the `shadow-md` utility here because it creates a circular dependency.
+  Error reference:
+    https://docs.astro.build/en/reference/errors/csssyntax-error/
+  Stack trace:
+    at Input.error (/Users/andrew/Workspace/wessex_whisky/node_modules/postcss/lib/input.js:135:16)
+    [...] See full stack trace in the browser, or rerun with --verbose.
+13:16:12 [200] / 53ms
+13:16:12 [watch] src/pages/tastings/[slug].astro
+13:16:12 [200] / 28ms
+13:16:15 [200] /tastings/glasgow-1770-distillery 4ms
+13:16:17 [200] /tastings/glasgow-1770-distillery 3ms
+13:16:23 [200] /tastings/glasgow-1770-distillery 3ms
+13:16:28 [200] /tastings 7ms
+13:16:29 [200] /tastings/anns-birthday-bash 6ms
+13:16:45 [200] / 7ms
+13:25:55 [200] /tastings/glasgow-1770-distillery 5ms
