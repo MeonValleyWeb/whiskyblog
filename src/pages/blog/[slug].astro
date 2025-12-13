@@ -1,0 +1,264 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection, getEntryBySlug } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const slug = Astro.params.slug;
+const post = Astro.props.post ?? (await getEntryBySlug('posts', slug));
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const { Content } = await post.render();
+
+// Normalise bottles:
+// - New format: `bottles` (1–6 items)
+// - Old format: `bottle` + optional top-level `tastingNotes`
+const bottles =
+  post.data.bottles ??
+  (post.data.bottle
+    ? [
+        {
+          name: post.data.bottle,
+          abv: post.data.abv,
+          price: post.data.price,
+          rating: post.data.rating,
+          tastingNotes: post.data.tastingNotes,
+        },
+      ]
+    : []);
+---
+
+<MainLayout title={post.data.title} description={post.data.excerpt}>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+      {post.data.image ? (
+        <div class="relative">
+          <img src={post.data.image} alt={post.data.title} class="w-full h-80 object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <p class="text-sm uppercase tracking-wide">{post.data.distillery ?? 'Whisky Notes'}</p>
+            <h1 class="text-3xl md:text-4xl font-bold leading-tight">{post.data.title}</h1>
+          </div>
+        </div>
+      ) : (
+        <div class="p-8">
+          <p class="text-sm uppercase tracking-wide text-wessex-red-500">{post.data.distillery ?? 'Whisky Notes'}</p>
+          <h1 class="text-3xl md:text-4xl font-bold text-wessex-navy-900 leading-tight">{post.data.title}</h1>
+        </div>
+      )}
+
+      <div class="px-6 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="space-y-1">
+          <p class="text-sm text-slate-500">
+            {new Date(post.data.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })} • {post.data.author}
+          </p>
+          <p class="text-slate-700">{post.data.excerpt}</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            {post.data.tags?.map((tag) => (
+              <span class="text-xs bg-wessex-gold-100 text-wessex-navy-700 px-2 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          {post.data.rating !== undefined ? (
+            <div class="px-4 py-2 rounded-lg border border-wessex-gold-200 bg-wessex-gold-50 text-wessex-navy-800 text-sm font-semibold">
+              Rating: {post.data.rating}/5
+            </div>
+          ) : null}
+          {post.data.region ? (
+            <div class="px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 text-sm">
+              Region: {post.data.region}
+            </div>
+          ) : null}
+          {post.data.abv ? (
+            <div class="px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 text-sm">
+              ABV: {post.data.abv}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Introduction -->
+        <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-4">
+          <h2 class="text-xl font-semibold text-wessex-navy-900">Introduction</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+              <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Brand Ambassador</p>
+              <p class="text-sm text-slate-800 font-semibold">{post.data.brandAmbassador ?? '—'}</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+              <p class="text-xs uppercase tracking-wide text-slate-500 mb-1">Distillery / Theme</p>
+              <p class="text-sm text-slate-800 font-semibold">{post.data.distillery ?? '—'}</p>
+            </div>
+          </div>
+          {post.data.history ? (
+            <div class="p-4 rounded-lg bg-wessex-gold-50 border border-wessex-gold-100">
+              <p class="text-xs uppercase tracking-wide text-wessex-navy-700 mb-2">A little history</p>
+              <p class="text-sm text-slate-700">{post.data.history}</p>
+            </div>
+          ) : null}
+          <div class="prose prose-slate max-w-none prose-headings:mt-8 prose-headings:mb-4 prose-hr:my-8 prose-p:mb-4 prose-ul:mt-2 prose-ul:mb-4">
+            <Content />
+          </div>
+        </section>
+
+        <!-- Bottle tastings -->
+        {bottles.length > 0 ? (
+          <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-6">
+            <h2 class="text-xl font-semibold text-wessex-navy-900">Bottle Tastings</h2>
+            <div class="space-y-8">
+              {bottles.map((bottle, index) => (
+                <div class="border-t border-slate-100 pt-6 first:border-t-0 first:pt-0">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                    <div>
+                      <h3 class="text-lg font-semibold text-wessex-navy-900">
+                        {index + 1}. {bottle.name}
+                      </h3>
+                      <div class="flex flex-wrap gap-2 mt-2">
+                        {bottle.age ? (
+                          <span class="text-xs px-2 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">Age: {bottle.age}</span>
+                        ) : null}
+                        {bottle.abv ? (
+                          <span class="text-xs px-2 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">ABV: {bottle.abv}</span>
+                        ) : null}
+                        {bottle.cask ? (
+                          <span class="text-xs px-2 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">{bottle.cask}</span>
+                        ) : null}
+                        {bottle.price ? (
+                          <span class="text-xs px-2 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">Price: {bottle.price}</span>
+                        ) : null}
+                      </div>
+                    </div>
+                    {bottle.rating !== undefined ? (
+                      <div class="px-3 py-2 rounded-lg border border-wessex-gold-200 bg-wessex-gold-50 text-wessex-navy-800 text-sm font-semibold">
+                        {bottle.rating}/5
+                      </div>
+                    ) : null}
+                  </div>
+
+                  <!-- Tasting notes boxes (shown after every bottle) -->
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    <div class="p-4 rounded-lg bg-wessex-gold-50 border border-wessex-gold-100">
+                      <h4 class="text-sm font-semibold text-wessex-navy-800 uppercase tracking-wide mb-2">Nose</h4>
+                      <p class="text-slate-700 text-sm">{bottle.tastingNotes?.nose ?? '—'}</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+                      <h4 class="text-sm font-semibold text-wessex-navy-800 uppercase tracking-wide mb-2">Palate</h4>
+                      <p class="text-slate-700 text-sm">{bottle.tastingNotes?.palate ?? '—'}</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+                      <h4 class="text-sm font-semibold text-wessex-navy-800 uppercase tracking-wide mb-2">Finish</h4>
+                      <p class="text-slate-700 text-sm">{bottle.tastingNotes?.finish ?? '—'}</p>
+                    </div>
+                  </div>
+                  {bottle.tastingNotes?.overall ? (
+                    <p class="text-sm text-slate-700 mt-3">{bottle.tastingNotes.overall}</p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <!-- Summary -->
+        <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-3">
+          <h2 class="text-xl font-semibold text-wessex-navy-900">Summary</h2>
+          <p class="text-slate-700 text-sm">
+            {post.data.summary ?? 'Add a short summary in frontmatter (summary:) — favourites, surprises, and what you’d buy again.'}
+          </p>
+        </section>
+      </div>
+
+      <aside class="space-y-6">
+        <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h2 class="text-lg font-semibold text-wessex-navy-900 mb-3">Bottle Info</h2>
+          {bottles.length > 0 ? (
+            <ol class="space-y-3 text-sm">
+              {bottles.map((bottle, index) => (
+                <li class="flex items-start justify-between gap-3">
+                  <div class="min-w-0">
+                    <p class="font-semibold text-slate-900 truncate">{index + 1}. {bottle.name}</p>
+                    <p class="text-xs text-slate-500 mt-0.5">
+                      {[bottle.age ? `Age ${bottle.age}` : null, bottle.abv ? `ABV ${bottle.abv}` : null].filter(Boolean).join(' • ') || '—'}
+                    </p>
+                  </div>
+                  {bottle.rating !== undefined ? (
+                    <span class="text-xs font-semibold text-wessex-navy-800 bg-wessex-gold-50 border border-wessex-gold-200 px-2 py-1 rounded-full whitespace-nowrap">
+                      {bottle.rating}/5
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p class="text-sm text-slate-600">Add `bottles:` in frontmatter to list 1–6 bottles here.</p>
+          )}
+        </section>
+
+        {post.data.stockists && post.data.stockists.length > 0 ? (
+          <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h2 class="text-lg font-semibold text-wessex-navy-900">Stockists</h2>
+                <p class="text-sm text-slate-600">Links to buy — affiliate links are labelled.</p>
+              </div>
+              <span class="text-[11px] text-wessex-red-600 font-semibold px-2 py-1 rounded-full bg-wessex-red-50 border border-wessex-red-100">
+                Affiliate note
+              </span>
+            </div>
+            <div class="mt-4 space-y-3">
+              {post.data.stockists.map((stockist) => (
+                <a
+                  href={stockist.url}
+                  class="flex items-start justify-between p-3 rounded-lg border border-slate-200 hover:border-wessex-red-300 hover:shadow-sm transition-colors"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div>
+                    <p class="font-semibold text-wessex-navy-800">{stockist.name}</p>
+                    {stockist.note ? <p class="text-xs text-slate-600 mt-1">{stockist.note}</p> : null}
+                  </div>
+                  {stockist.affiliate ? (
+                    <span class="text-[11px] text-wessex-red-600 font-semibold px-2 py-1 rounded-full bg-wessex-red-50 border border-wessex-red-100">
+                      Affiliate
+                    </span>
+                  ) : (
+                    <span class="text-[11px] text-slate-500 px-2 py-1 rounded-full border border-slate-200">Standard</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <section class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-wessex-navy-900 mb-2">Stockists</h2>
+            <p class="text-sm text-slate-600">Add stockist links in frontmatter to surface affiliate options.</p>
+          </section>
+        )}
+
+        <section class="bg-wessex-red-500 rounded-xl p-6 shadow-sm text-white">
+          <h2 class="text-lg font-semibold mb-2 font-serif">Subscribe for future tastings</h2>
+          <p class="text-sm text-wessex-red-100 mb-4">
+            Get new tasting notes and distillery write-ups occasionally (no spam).
+          </p>
+          <a href="/subscribe" class="inline-flex items-center justify-center w-full bg-white text-wessex-red-500 px-4 py-2 rounded-lg font-semibold hover:bg-wessex-red-50 transition-colors">
+            Subscribe
+          </a>
+        </section>
+      </aside>
+    </div>
+  </article>
+</MainLayout>
