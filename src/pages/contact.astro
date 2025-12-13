@@ -2,107 +2,39 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Contact Us" description="Get in touch with Wessex Whisky Club for membership, events, or general inquiries">
+<MainLayout title="Contact" description="Contact the Wessex Whisky Blog">
   
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-wessex-gold-50 to-wessex-red-50 py-20">
+  <section class="bg-gradient-to-r from-wessex-gold-50 to-wessex-red-50 py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-4xl md:text-5xl font-bold text-wessex-navy-900 mb-6 font-serif">
-        Contact Us
+        Say hello
       </h1>
       <p class="text-xl text-slate-700">
-        We'd love to hear from you. Get in touch with any questions about membership, events, or partnerships.
+        Send tasting tips, bottle recommendations, or notes on a distillery I should visit next.
       </p>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        
-        <!-- Contact Information -->
-        <div>
-          <h2 class="text-3xl font-bold text-wessex-navy-900 mb-8 font-serif">Get In Touch</h2>
-          
-          <div class="space-y-6">
-            <!-- Email -->
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <div class="w-10 h-10 bg-wessex-gold-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-wessex-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-slate-900">Email</h3>
-                <p class="text-slate-600">info@wessexwhisky.co.uk</p>
-                <p class="text-sm text-slate-500 mt-1">We typically respond within 24 hours</p>
-              </div>
-            </div>
-
-            <!-- Location -->
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <div class="w-10 h-10 bg-wessex-red-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-wessex-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-slate-900">Location</h3>
-                <p class="text-slate-600">Based in the South West</p>
-                <p class="text-slate-600">Events across Devon, Dorset, Somerset & Cornwall</p>
-              </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <div class="w-10 h-10 bg-wessex-navy-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-wessex-navy-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h3 class="text-lg font-semibold text-slate-900">Follow Us</h3>
-                <div class="flex space-x-3 mt-2">
-                  <a href="#" class="text-wessex-red-500 hover:text-wessex-red-600">Facebook</a>
-                  <span class="text-slate-300">•</span>
-                  <a href="#" class="text-wessex-red-500 hover:text-wessex-red-600">Instagram</a>
-                </div>
-              </div>
-            </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-1 space-y-6">
+          <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+            <h2 class="text-xl font-semibold text-wessex-navy-900 mb-3">Contact details</h2>
+            <p class="text-slate-700 text-sm">hello@wessexwhisky.co.uk</p>
+            <p class="text-slate-600 text-sm mt-2">Based in the South West. Expect replies within a day or two.</p>
           </div>
-
-          <!-- Additional Info -->
-          <div class="mt-12 p-6 bg-slate-50 rounded-lg">
-            <h3 class="text-lg font-semibold text-slate-900 mb-4">Quick Information</h3>
-            <div class="space-y-3 text-sm">
-              <div class="flex justify-between">
-                <span class="text-slate-600">Membership Inquiries:</span>
-                <span class="text-slate-900">membership@wessexwhisky.co.uk</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-600">Event Bookings:</span>
-                <span class="text-slate-900">events@wessexwhisky.co.uk</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-600">Partnership Inquiries:</span>
-                <span class="text-slate-900">partnerships@wessexwhisky.co.uk</span>
-              </div>
-            </div>
+          <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+            <h3 class="text-lg font-semibold text-wessex-navy-900 mb-2">Social</h3>
+            <p class="text-slate-700 text-sm">Instagram and Facebook links will live here once they're set up.</p>
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <div>
-          <div class="bg-slate-50 rounded-lg p-8">
-            <h3 class="text-2xl font-bold text-slate-900 mb-6">Send us a message</h3>
+        <div class="lg:col-span-2">
+          <div class="bg-slate-50 rounded-lg p-8 border border-slate-200">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6">Send a message</h3>
             
             <form class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -146,26 +78,6 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
 
               <div>
-                <label for="subject" class="block text-sm font-medium text-slate-700 mb-1">
-                  Subject
-                </label>
-                <select 
-                  id="subject" 
-                  name="subject" 
-                  class="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-                  required
-                >
-                  <option value="">Please select...</option>
-                  <option value="membership">Membership Inquiry</option>
-                  <option value="event-booking">Event Booking</option>
-                  <option value="partnership">Partnership Opportunity</option>
-                  <option value="charity">Charity Nomination</option>
-                  <option value="general">General Question</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
                 <label for="message" class="block text-sm font-medium text-slate-700 mb-1">
                   Message
                 </label>
@@ -186,7 +98,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   class="h-4 w-4 text-amber-600 focus:ring-amber-500 border-slate-300 rounded"
                 >
                 <label for="newsletter" class="ml-2 block text-sm text-slate-700">
-                  I'd like to receive updates about upcoming events and membership opportunities
+                  Send me tasting updates (a light, occasional newsletter).
                 </label>
               </div>
 
@@ -198,53 +110,6 @@ import MainLayout from '../layouts/MainLayout.astro';
               </button>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-16 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-wessex-navy-900 mb-4 font-serif">Frequently Asked Questions</h2>
-        <p class="text-lg text-slate-600">Quick answers to common questions</p>
-      </div>
-
-      <div class="space-y-8">
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">How do I become a member?</h3>
-          <p class="text-slate-600">
-            Visit our <a href="/membership" class="text-amber-600 hover:text-amber-700">membership page</a> to learn about our options and sign up. You can choose between annual or lifetime membership.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">Can I attend events as a non-member?</h3>
-          <p class="text-slate-600">
-            Yes! We welcome guests at all our events. Guest pricing is higher than member pricing, but you'll have the same great experience.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">How are charities selected?</h3>
-          <p class="text-slate-600">
-            Each year, our members nominate local charities, and we vote to select the primary beneficiary. We focus on causes that make a direct impact in the South West.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">Do you host private events?</h3>
-          <p class="text-slate-600">
-            We occasionally host private tastings for corporate groups or special occasions. Contact us to discuss your requirements.
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-lg font-semibold text-slate-900 mb-2">What's your cancellation policy?</h3>
-          <p class="text-slate-600">
-            Members can cancel bookings up to 48 hours before an event for a full refund. Guest cancellations follow the same policy.
-          </p>
         </div>
       </div>
     </div>

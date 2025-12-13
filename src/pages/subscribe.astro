@@ -1,0 +1,17 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Subscribe">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-bold text-wessex-navy-800">Subscribe</h1>
+    <p class="text-slate-600 mt-2">Join the mailing list to get new posts, tasting notes and distillery recommendations.</p>
+
+    <form class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4" action="#" method="post">
+      <input name="email" type="email" required placeholder="your@email.com" class="col-span-2 px-4 py-3 rounded border border-slate-200" />
+      <button type="submit" class="bg-wessex-red-500 text-white px-6 py-3 rounded">Subscribe</button>
+    </form>
+
+    <p class="text-sm text-slate-500 mt-4">Tip: integrate Mailchimp/ConvertKit later — for now this form is a placeholder.</p>
+  </section>
+</MainLayout>

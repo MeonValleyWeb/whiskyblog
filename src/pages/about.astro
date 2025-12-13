@@ -2,233 +2,83 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="About Us" description="Learn about Wessex Whisky Club's mission to bring exceptional whisky experiences while supporting local charities">
-  
+<MainLayout title="About" description="About the Wessex Whisky Blog and the person writing it">
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-wessex-gold-50 to-wessex-red-50 py-20">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-wessex-navy-900 mb-6 font-serif">
-        About Wessex Whisky Club
+  <section class="bg-gradient-to-r from-wessex-gold-50 to-wessex-red-50 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-wessex-navy-900 mb-4 font-serif">
+        About the Blog
       </h1>
-      <p class="text-xl text-slate-700">
-        Where exceptional whisky meets exceptional causes
+      <p class="text-xl text-slate-700 max-w-3xl mx-auto">
+        A personal whisky journal capturing tastings, distillery visits, and the bottles that keep me curious.
       </p>
     </div>
   </section>
 
-  <!-- Story Section -->
+  <!-- Story -->
   <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold text-wessex-navy-900 mb-6 font-serif">Our Story</h2>
-          <div class="space-y-4 text-lg text-slate-700">
-            <p>
-              Founded in 2011, Wessex Whisky Club began with a simple but powerful idea: 
-              combine our passion for exceptional whisky with our commitment to supporting 
-              local communities across the South.
-            </p>
-            <p>
-              What started as informal tastings among friends has grown into one of the region's 
-              premier whisky societies, known for our exclusive events, expert-led experiences, 
-              and unwavering dedication to charitable causes.
-            </p>
-            <p>
-              Every tasting we organize serves a dual purpose - to educate and delight our 
-              members while raising vital funds for carefully selected local charities. 
-              We've raised over £10,000 in donations to various causes as a result of the generosity of our members.
-            </p>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-slate-200 flex items-center justify-center p-8">
-            <img src="/wessex_whisky_logo_coloured.png" alt="Wessex Whisky Club Logo" class="max-w-full max-h-full object-contain" />
-          </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4 text-lg text-slate-700">
+        <h2 class="text-3xl font-bold text-wessex-navy-900 mb-4 font-serif">Why write about whisky?</h2>
+        <p>
+          I started Wessex Whisky Blog to keep track of the drams I was tasting at home and on travels. The notes were
+          scattered across notebooks and phone memos, so this site became a single place to log flavours, favourites,
+          and stockists worth sharing.
+        </p>
+        <p>
+          There are no events or memberships here — just honest impressions, photos from distillery visits, and links
+          to where I buy bottles. If a link is an affiliate link, I mark it clearly. The aim is simple: help other
+          whisky fans find something new to enjoy.
+        </p>
+        <p>
+          Most tastings happen in the South West, but the bottles range far wider. Expect Highland classics, Islay peat,
+          Irish discoveries, and the occasional world whisky that surprises me.
+        </p>
+      </div>
+      <div class="relative">
+        <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-slate-200 flex items-center justify-center p-8">
+          <img src="/wessex_whisky_logo_coloured.png" alt="Wessex Whisky Blog" class="max-w-full max-h-full object-contain" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mission & Values -->
+  <!-- What to expect -->
   <section class="py-16 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-wessex-navy-900 mb-4 font-serif">Our Mission & Values</h2>
-      </div>
-
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-wessex-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-wessex-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Excellence</h3>
-          <p class="text-slate-600">
-            We curate only the finest whisky experiences, working directly with renowned 
-            distilleries to bring you exceptional spirits and expert knowledge.
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <h3 class="text-xl font-semibold text-wessex-navy-900 mb-3">Tasting notes</h3>
+          <p class="text-slate-700 text-sm">
+            Nose, palate, finish and an overall impression on bottles I buy, share, or taste at friends' tables.
           </p>
         </div>
-
-        <div class="text-center">
-          <div class="w-16 h-16 bg-wessex-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-wessex-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Community</h3>
-          <p class="text-slate-600">
-            Every event supports local charities, ensuring that your passion for whisky 
-            creates positive impact in our South communities.
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <h3 class="text-xl font-semibold text-wessex-navy-900 mb-3">Distillery visits</h3>
+          <p class="text-slate-700 text-sm">
+            Snapshots from tours across the UK and beyond: what stood out, which drams to seek out, and photos along the way.
           </p>
         </div>
-
-        <div class="text-center">
-          <div class="w-16 h-16 bg-wessex-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-wessex-navy-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-3">Education</h3>
-          <p class="text-slate-600">
-            We believe great whisky deserves understanding. Our events combine 
-            tasting with learning, guided by industry experts and distillery representatives.
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+          <h3 class="text-xl font-semibold text-wessex-navy-900 mb-3">Stockists</h3>
+          <p class="text-slate-700 text-sm">
+            Links to reliable shops. Affiliate links are labelled so you know when a click supports the blog.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-wessex-navy-900 mb-4 font-serif">Meet the Team</h2>
-        <p class="text-lg text-slate-600">The passionate individuals behind Wessex Whisky Club</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Team Member 1 -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span class="text-slate-500">Photo</span>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">Simon Hogg</h3>
-          <p class="text-wessex-red-500 font-medium mb-3">Chairman & Founding Member</p>
-          <p class="text-slate-600 text-sm">
-            Simon co-founded Wessex Whisky Club with a vision to combine exceptional whisky 
-            experiences with charitable giving. His leadership has guided the club's growth 
-            and charitable impact across the South.
-          </p>
-        </div>
-
-        <!-- Team Member 2 -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span class="text-slate-500">Photo</span>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">Paul Winstanley</h3>
-          <p class="text-wessex-red-500 font-medium mb-3">Treasurer & Founding Member</p>
-          <p class="text-slate-600 text-sm">
-            Paul ensures the financial integrity of our operations and charitable donations. 
-            As a founding member, he has been instrumental in establishing the club's 
-            transparent approach to fundraising.
-          </p>
-        </div>
-
-        <!-- Team Member 3 -->
-        <div class="text-center">
-          <div class="w-32 h-32 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span class="text-slate-500">Photo</span>
-          </div>
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">Dave Dickel</h3>
-          <p class="text-wessex-red-500 font-medium mb-3">Founding Member</p>
-          <p class="text-slate-600 text-sm">
-            Dave brings extensive knowledge of whisky and spirits to the club. As a founding 
-            member, he has helped shape our educational approach and maintains relationships 
-            with distilleries and industry experts.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statistics Section -->
+  <!-- Contact CTA -->
   <section class="py-16 bg-wessex-red-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-        <div>
-          <div class="text-4xl font-bold mb-2">50+</div>
-          <div class="text-wessex-red-100">Members</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">30+</div>
-          <div class="text-wessex-red-100">Events Hosted</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">£10K+</div>
-          <div class="text-wessex-red-100">Raised for Charity</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold mb-2">15+</div>
-          <div class="text-wessex-red-100">Distilleries Featured</div>
-        </div>
-      </div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <h2 class="text-3xl font-bold mb-4 font-serif">Want to say hello?</h2>
+      <p class="text-lg text-wessex-red-100 mb-8">
+        Drop a note if you'd like me to taste something specific or have a distillery tip to share.
+      </p>
+      <a href="/contact" class="inline-flex items-center bg-white text-wessex-red-500 px-8 py-3 rounded-lg font-semibold hover:bg-wessex-red-50 transition-colors">
+        Get in touch
+      </a>
     </div>
   </section>
-
-  <!-- Location Section -->
-  <section class="py-16 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-bold text-wessex-navy-900 mb-6 font-serif">The South of England</h2>
-          <div class="space-y-4 text-lg text-slate-700">
-            <p>
-              Based in Winchester and the surrounding Hampshire area, we're proud to serve whisky enthusiasts 
-              across the South of England. Our events take place in carefully selected venues 
-              that complement the whisky experience.
-            </p>
-            <p>
-              From historic coaching inns to luxury hotels, we choose locations that 
-              enhance the atmosphere and provide the perfect setting for learning, 
-              tasting, and connecting with fellow enthusiasts.
-            </p>
-            <p>
-              Our approach focuses on bringing exceptional whisky experiences to the 
-              Winchester area and surrounding communities, making premium tastings accessible 
-              to local enthusiasts.
-            </p>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-slate-200 p-4">
-            <div class="flex items-center justify-center">
-              <!-- Simple South England Map representation -->
-              <div class="relative w-full h-full max-w-md">
-                <svg viewBox="0 0 400 300" class="w-full h-full">
-                  <!-- Simplified outline of southern England -->
-                  <path d="M50 150 Q100 120 150 130 Q200 125 250 140 Q300 135 350 150 Q340 180 320 200 Q280 220 240 210 Q200 215 160 200 Q120 190 80 180 Q60 165 50 150 Z" 
-                        fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
-                  
-                  <!-- Winchester marker -->
-                  <circle cx="180" cy="170" r="6" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
-                  <text x="190" y="175" font-size="12" fill="#1e293b" font-weight="bold">Winchester</text>
-                  
-                  <!-- Hampshire label -->
-                  <text x="200" y="200" font-size="10" fill="#64748b">Hampshire</text>
-                  
-                  <!-- Surrounding areas -->
-                  <text x="120" y="160" font-size="9" fill="#64748b">Dorset</text>
-                  <text x="260" y="160" font-size="9" fill="#64748b">Surrey</text>
-                  <text x="180" y="140" font-size="9" fill="#64748b">Berkshire</text>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </MainLayout>
