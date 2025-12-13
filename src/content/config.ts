@@ -60,6 +60,28 @@ const posts = defineCollection({
   }),
 });
 
+// Guides are informational Q&A posts for SEO (e.g. "can whisky go bad?")
+// They use a simpler schema and can link to related tasting posts.
+const guides = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(), // The question, e.g. "Can Whisky Go Bad?"
+    date: z.date(),
+    author: z.string(),
+    excerpt: z.string(), // Short answer summary for preview
+    image: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    featured: z.boolean().default(false),
+    // SEO metadata
+    searchVolume: z.number().optional(),
+    keyword: z.string().optional(),
+    // Related content
+    relatedPosts: z.array(z.string()).optional(), // slugs of related blog posts
+    relatedGuides: z.array(z.string()).optional(), // slugs of related guides
+  }),
+});
+
 export const collections = {
   posts,
+  guides,
 };
