@@ -1,0 +1,94 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+const guides = await getCollection('guides');
+const sortedGuides = guides.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Group guides by tags for better organization
+const guidesByTag: Record<string, typeof guides> = {};
+guides.forEach((guide) => {
+  guide.data.tags?.forEach((tag) => {
+    if (!guidesByTag[tag]) {
+      guidesByTag[tag] = [];
+    }
+    guidesByTag[tag].push(guide);
+  });
+});
+---
+
+<MainLayout title="Whisky Guides" description="Your questions about whisky, answered. From storage to tasting, investment to history.">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-wessex-navy-900 mb-4">Whisky Guides</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Clear answers to common whisky questions. Whether you're curious about storage, investment, or simply how to enjoy whisky, we've got you covered.
+      </p>
+    </header>
+
+    <!-- Featured/Recent Guides -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-wessex-navy-900 mb-6">Recent Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedGuides.slice(0, 6).map((guide) => (
+          <a
+            href={`/guides/${guide.slug}`}
+            class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-wessex-gold-300 transition-all"
+          >
+            <h3 class="text-lg font-semibold text-wessex-navy-900 mb-2">{guide.data.title}</h3>
+            <p class="text-sm text-slate-600 mb-3">{guide.data.excerpt}</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {guide.data.tags?.slice(0, 2).map((tag) => (
+                <span class="text-xs bg-wessex-gold-100 text-wessex-navy-700 px-2 py-1 rounded-full">{tag}</span>
+              ))}
+            </div>
+            <p class="text-xs text-slate-500">
+              {new Date(guide.data.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- All Guides by Category -->
+    {Object.keys(guidesByTag).length > 0 && (
+      <section class="space-y-8">
+        <h2 class="text-2xl font-semibold text-wessex-navy-900">Browse by Topic</h2>
+        {Object.entries(guidesByTag).map(([tag, tagGuides]) => (
+          <div>
+            <h3 class="text-xl font-semibold text-wessex-navy-800 mb-4 capitalize">{tag}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {tagGuides.map((guide) => (
+                <a
+                  href={`/guides/${guide.slug}`}
+                  class="p-4 rounded-lg border border-slate-200 hover:border-wessex-gold-300 hover:shadow-sm transition-colors flex items-start justify-between gap-3"
+                >
+                  <div>
+                    <h4 class="font-semibold text-wessex-navy-900 mb-1">{guide.data.title}</h4>
+                    <p class="text-sm text-slate-600">{guide.data.excerpt}</p>
+                  </div>
+                  {guide.data.searchVolume !== undefined && guide.data.searchVolume > 100 && (
+                    <span class="text-xs text-wessex-red-600 font-semibold px-2 py-1 rounded-full bg-wessex-red-50 border border-wessex-red-100 whitespace-nowrap">
+                      Popular
+                    </span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section class="mt-12 bg-wessex-red-500 rounded-2xl p-8 text-white text-center">
+      <h2 class="text-2xl font-bold mb-2">Can't find what you're looking for?</h2>
+      <p class="text-wessex-red-100 mb-6">
+        We're always adding new guides. Subscribe to get notified when new content is published.
+      </p>
+      <a href="/subscribe" class="inline-flex items-center justify-center bg-white text-wessex-red-500 px-6 py-3 rounded-lg font-semibold hover:bg-wessex-red-50 transition-colors">
+        Subscribe for Updates
+      </a>
+    </section>
+  </div>
+</MainLayout>
