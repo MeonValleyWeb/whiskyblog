@@ -32,7 +32,7 @@ guides.forEach((guide) => {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedGuides.slice(0, 6).map((guide) => (
           <a
-            href={`/guides/${guide.slug}`}
+            href={`/guides/${guide.id}`}
             class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-wessex-gold-300 transition-all"
           >
             <h3 class="text-lg font-semibold text-wessex-navy-900 mb-2">{guide.data.title}</h3>
@@ -60,7 +60,7 @@ guides.forEach((guide) => {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               {tagGuides.map((guide) => (
                 <a
-                  href={`/guides/${guide.slug}`}
+                  href={`/guides/${guide.id}`}
                   class="p-4 rounded-lg border border-slate-200 hover:border-wessex-gold-300 hover:shadow-sm transition-colors flex items-start justify-between gap-3"
                 >
                   <div>
