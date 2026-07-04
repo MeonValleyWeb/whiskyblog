@@ -1,23 +1,23 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const slug = Astro.params.slug;
-const post = Astro.props.post ?? (await getEntryBySlug('posts', slug));
+const post = Astro.props.post ?? (await getEntry('posts', slug));
 
 if (!post) {
   throw new Error(`Post not found: ${slug}`);
 }
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Normalise bottles:
 // - New format: `bottles` (1–6 items)

@@ -1,9 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
-// Posts double as tasting write-ups.
-// Most tastings cover 6 bottles, so the schema supports 1–6 bottles with structured tasting notes.
 const posts = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
     date: z.date(),
@@ -13,21 +12,18 @@ const posts = defineCollection({
     category: z.string().optional(),
     tags: z.array(z.string()).optional(),
     featured: z.boolean().default(false),
-    // Tasting meta (optional, but recommended for tasting-style posts)
-    distillery: z.string().optional(), // e.g. "Glenmorangie" or "Various"
+    distillery: z.string().optional(),
     brandAmbassador: z.string().optional(),
-    history: z.string().optional(), // short distillery/tasting context shown in the intro
-    // Back-compat (single-bottle posts). Prefer `bottles` moving forward.
+    history: z.string().optional(),
     bottle: z.string().optional(),
     region: z.string().optional(),
     abv: z.string().optional(),
     rating: z.number().min(0).max(5).optional(),
     price: z.string().optional(),
-    // Structured bottles: typically 6 items, rendered as 1., 2., 3. etc.
     bottles: z
       .array(
         z.object({
-          name: z.string(), // label shown in headings and sidebar
+          name: z.string(),
           abv: z.string().optional(),
           age: z.string().optional(),
           cask: z.string().optional(),
@@ -60,28 +56,21 @@ const posts = defineCollection({
   }),
 });
 
-// Guides are informational Q&A posts for SEO (e.g. "can whisky go bad?")
-// They use a simpler schema and can link to related tasting posts.
 const guides = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
   schema: z.object({
-    title: z.string(), // The question, e.g. "Can Whisky Go Bad?"
+    title: z.string(),
     date: z.date(),
     author: z.string(),
-    excerpt: z.string(), // Short answer summary for preview
+    excerpt: z.string(),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
     featured: z.boolean().default(false),
-    // SEO metadata
     searchVolume: z.number().optional(),
     keyword: z.string().optional(),
-    // Related content
-    relatedPosts: z.array(z.string()).optional(), // slugs of related blog posts
-    relatedGuides: z.array(z.string()).optional(), // slugs of related guides
+    relatedPosts: z.array(z.string()).optional(),
+    relatedGuides: z.array(z.string()).optional(),
   }),
 });
 
-export const collections = {
-  posts,
-  guides,
-};
+export const collections = { posts, guides };
