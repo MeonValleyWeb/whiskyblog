@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-wessex-gold-50: #fefce8;
+  --color-wessex-gold-100: #fef3c7;
+  --color-wessex-gold-200: #fde68a;
+  --color-wessex-gold-300: #fcd34d;
+  --color-wessex-gold-400: #fbbf24;
+  --color-wessex-gold-500: #f59e0b;
+  --color-wessex-gold-600: #d97706;
+  --color-wessex-gold-700: #b45309;
+  --color-wessex-gold-800: #92400e;
+  --color-wessex-gold-900: #78350f;
+  --color-wessex-gold-950: #451a03;
+
+  --color-wessex-red-50: #fef2f2;
+  --color-wessex-red-100: #fee2e2;
+  --color-wessex-red-200: #fecaca;
+  --color-wessex-red-300: #fca5a5;
+  --color-wessex-red-400: #f87171;
+  --color-wessex-red-500: #dc2626;
+  --color-wessex-red-600: #b91c1c;
+  --color-wessex-red-700: #991b1b;
+  --color-wessex-red-800: #7f1d1d;
+  --color-wessex-red-900: #6b1f23;
+  --color-wessex-red-950: #450a0a;
+
+  --color-wessex-navy-50: #f8fafc;
+  --color-wessex-navy-100: #f1f5f9;
+  --color-wessex-navy-200: #e2e8f0;
+  --color-wessex-navy-300: #cbd5e1;
+  --color-wessex-navy-400: #94a3b8;
+  --color-wessex-navy-500: #64748b;
+  --color-wessex-navy-600: #475569;
+  --color-wessex-navy-700: #334155;
+  --color-wessex-navy-800: #1e293b;
+  --color-wessex-navy-900: #0f172a;
+  --color-wessex-navy-950: #020617;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
